@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34004.107
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityProvider", "IdentityProvider\IdentityProvider.csproj", "{4F06C65B-2476-4ABA-98FF-DAF99F60C159}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BffOpenIddict.Server", "bff\server\BffOpenIddict.Server.csproj", "{AD83F3C5-5450-448F-BEE0-4891730265A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F06C65B-2476-4ABA-98FF-DAF99F60C159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F06C65B-2476-4ABA-98FF-DAF99F60C159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F06C65B-2476-4ABA-98FF-DAF99F60C159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F06C65B-2476-4ABA-98FF-DAF99F60C159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD83F3C5-5450-448F-BEE0-4891730265A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD83F3C5-5450-448F-BEE0-4891730265A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD83F3C5-5450-448F-BEE0-4891730265A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD83F3C5-5450-448F-BEE0-4891730265A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71ABB31C-4A0F-4FC3-9C49-C9985B1CE6AB}
+	EndGlobalSection
+EndGlobal
