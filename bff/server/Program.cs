@@ -86,7 +86,7 @@ else
 }
 
 app.UseSecurityHeaders(SecurityHeadersDefinitions
-    .GetHeaderPolicyCollection(env.IsDevelopment(), configuration["Auth0:Domain"]));
+    .GetHeaderPolicyCollection(env.IsDevelopment(), stsServer));
 
 app.UseHttpsRedirection();
 
