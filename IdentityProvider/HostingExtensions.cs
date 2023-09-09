@@ -82,21 +82,6 @@ internal static class HostingExtensions
             options.UseInMemoryStore();
         });
 
-        services.AddCors(options =>
-        {
-            options.AddPolicy("AllowAllOrigins",
-                builder =>
-                {
-                    builder
-                        .AllowCredentials()
-                        .WithOrigins(
-                            "https://localhost:4200")
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
-        });
-
         // Register the Quartz.NET service and configure it to block shutdown until jobs are complete.
         services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
 
@@ -187,8 +172,6 @@ internal static class HostingExtensions
             //app.UseExceptionHandler("~/error");
             //app.UseHsts();
         }
-
-        app.UseCors("AllowAllOrigins");
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
