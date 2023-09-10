@@ -22,7 +22,7 @@ Or just open Visual Studio and run the solution.
 
 - NetEscapades.AspNetCore.SecurityHeaders
 - Yarp.ReverseProxy
-- Microsoft.Identity.Web
+- OpenIddict
 - ASP.NET Core
 - Angular 
 - Nx
@@ -35,8 +35,6 @@ https://github.com/damienbod/bff-aspnetcore-angular
 https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core
 
 https://nx.dev/getting-started/intro
-
-https://github.com/AzureAD/microsoft-identity-web
 
 https://github.com/isolutionsag/aspnet-react-bff-proxy-example
 
