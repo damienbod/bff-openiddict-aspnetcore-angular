@@ -26,40 +26,6 @@ public class Worker : IHostedService
         {
             var manager = provider.GetRequiredService<IOpenIddictApplicationManager>();
 
-            // API delegated with introspection or CC
-            if (await manager.FindByClientIdAsync("rs_dataEventRecordsApi") == null)
-            {
-                var descriptor = new OpenIddictApplicationDescriptor
-                {
-                    ClientId = "rs_dataEventRecordsApi",
-                    ClientSecret = "dataEventRecordsSecret",
-                    Permissions =
-                    {
-                        Permissions.Endpoints.Introspection,
-                    }
-                };
-
-                await manager.CreateAsync(descriptor);
-            }
-
-            // API application CC
-            if (await manager.FindByClientIdAsync("CC") == null)
-            {
-                await manager.CreateAsync(new OpenIddictApplicationDescriptor
-                {
-                    ClientId = "CC",
-                    ClientSecret = "cc_secret",
-                    DisplayName = "CC for protected API",
-                    Permissions =
-                    {
-                        Permissions.Endpoints.Authorization,
-                        Permissions.Endpoints.Token,
-                        Permissions.GrantTypes.ClientCredentials,
-                        Permissions.Prefixes.Scope + "dataEventRecords"
-                    }
-                });
-            }
-
             // OIDC Code flow confidential client
             if (await manager.FindByClientIdAsync("oidc-pkce-confidential") is null)
             {
@@ -74,12 +40,10 @@ public class Worker : IHostedService
                     },
                     PostLogoutRedirectUris =
                     {
-                        new Uri("https://localhost:44360/signout-callback-oidc"),
                         new Uri("https://localhost:5001/signout-callback-oidc")
                     },
                     RedirectUris =
                     {
-                        new Uri("https://localhost:44360/signin-oidc"),
                         new Uri("https://localhost:5001/signin-oidc")
                     },
                     ClientSecret = "oidc-pkce-confidential_secret",
