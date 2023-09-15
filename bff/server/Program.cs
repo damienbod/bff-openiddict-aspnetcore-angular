@@ -72,8 +72,9 @@ builder.Services.AddReverseProxy()
 
 var app = builder.Build();
 
-IdentityModelEventSource.ShowPII = true;
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+// Do not add to deployments, for debug reasons
+IdentityModelEventSource.ShowPII = true;
 
 if (env.IsDevelopment())
 {
@@ -89,9 +90,7 @@ app.UseSecurityHeaders(SecurityHeadersDefinitions
     .GetHeaderPolicyCollection(env.IsDevelopment(), stsServer));
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseNoUnauthorizedRedirect("/api");
