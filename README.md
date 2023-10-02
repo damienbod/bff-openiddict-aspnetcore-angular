@@ -44,3 +44,5 @@ https://github.com/openiddict
 https://github.com/damienbod/bff-auth0-aspnetcore-angular
 
 https://github.com/damienbod/bff-azureadb2c-aspnetcore-angular
+
+https://github.com/damienbod/bff-aspnetcore-vuejs
