@@ -1,4 +1,4 @@
-﻿namespace BffMicrosoftEntraID.Server;
+﻿﻿namespace BffOpenIddict.Server;
 
 public static class SecurityHeadersDefinitions
 {
