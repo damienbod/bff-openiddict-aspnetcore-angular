@@ -29,6 +29,10 @@ Or just open Visual Studio and run the solution.
 - Nx
 - OpenIddict
 
+## History
+
+2023-11-16 .NET 8 updates
+
 ## Links
 
 https://github.com/damienbod/bff-aspnetcore-angular
