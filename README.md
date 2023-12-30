@@ -31,7 +31,8 @@ Or just open Visual Studio and run the solution.
 
 ## History
 
-2023-11-16 .NET 8 updates
+- 2023-12-30 Open Redirect protection for login
+- 2023-11-16 .NET 8 updates
 
 ## Links
 

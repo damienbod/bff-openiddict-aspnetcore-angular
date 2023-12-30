@@ -12,11 +12,9 @@ public class AccountController : ControllerBase
     [HttpGet("Login")]
     public ActionResult Login(string? returnUrl, string? claimsChallenge)
     {
-        var redirectUri = !string.IsNullOrEmpty(returnUrl) ? returnUrl : "/";
+        var properties = GetAuthProperties(returnUrl);
 
-        var properties = new AuthenticationProperties { RedirectUri = redirectUri };
-
-        if(claimsChallenge != null)
+        if (claimsChallenge != null)
         {
             string jsonString = claimsChallenge.Replace("\\", "")
                 .Trim(new char[1] { '"' });
@@ -37,5 +35,30 @@ public class AccountController : ControllerBase
             new AuthenticationProperties { RedirectUri = "/" },
             CookieAuthenticationDefaults.AuthenticationScheme,
             OpenIdConnectDefaults.AuthenticationScheme);
+    }
+
+    /// <summary>
+    /// Original src:
+    /// https://github.com/dotnet/blazor-samples/blob/main/8.0/BlazorWebOidc/BlazorWebOidc/LoginLogoutEndpointRouteBuilderExtensions.cs
+    /// </summary>
+    private static AuthenticationProperties GetAuthProperties(string? returnUrl)
+    {
+        const string pathBase = "/";
+
+        // Prevent open redirects.
+        if (string.IsNullOrEmpty(returnUrl))
+        {
+            returnUrl = pathBase;
+        }
+        else if (!Uri.IsWellFormedUriString(returnUrl, UriKind.Relative))
+        {
+            returnUrl = new Uri(returnUrl, UriKind.Absolute).PathAndQuery;
+        }
+        else if (returnUrl[0] != '/')
+        {
+            returnUrl = $"{pathBase}{returnUrl}";
+        }
+
+        return new AuthenticationProperties { RedirectUri = returnUrl };
     }
 }
