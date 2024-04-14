@@ -2,7 +2,7 @@
 
 <ng-container *ngIf="userProfileClaims$ | async as userProfileClaims; else noAuth">
   <div *ngIf="userProfileClaims?.isAuthenticated; else noAuth">
-	  <nav>
+	  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="btn btn-link" href="./call-api">Call API</a>
 		
 		<form method="post" action="api/Account/Logout">
@@ -19,7 +19,9 @@
 </ng-container>
 
 <ng-template #noAuth>
-  <a class="btn btn-link" href="api/Account/Login">Log in</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="btn btn-link" href="api/Account/Login">Log in</a>
+	</nav>
 </ng-template>
 
  <hr />
