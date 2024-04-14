@@ -1,1 +1,10 @@
 <p>call-api works!</p>
+
+<div>
+<button (click)="getDirectApiData()">get data from API direct</button>
+</div>
+
+<hr />
+
+<h2>get direct data using API:</h2>
+<pre>{{ dataFromAzureProtectedApi$ | async | json }}</pre>
