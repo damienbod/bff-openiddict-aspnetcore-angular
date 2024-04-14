@@ -1,13 +1,14 @@
 <h2>BFF OpenIddict Security architecture with Angular nx</h2>
 
-<ng-container
-  *ngIf="userProfileClaims$ | async as userProfileClaims; else noAuth"
->
+<ng-container *ngIf="userProfileClaims$ | async as userProfileClaims; else noAuth">
   <div *ngIf="userProfileClaims?.isAuthenticated; else noAuth">
-    <button (click)="getDirectApiData()">get data from API direct</button>
-    <form method="post" action="api/Account/Logout">
-      <button class="btn btn-link" type="submit">Sign out</button>
-    </form>
+	  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="btn btn-link" href="./call-api">Call API</a>
+		
+		<form method="post" action="api/Account/Logout">
+		  <button class="btn btn-link" type="submit">Sign out</button>
+		</form>
+	  </nav>
   </div>
 
   <hr />
@@ -15,12 +16,12 @@
   <h2>User profile:</h2>
   <pre>{{ userProfileClaims | json }}</pre>
 
-  <hr />
-
-  <h2>get direct data using API:</h2>
-  <pre>{{ dataFromAzureProtectedApi$ | async | json }}</pre>
 </ng-container>
 
 <ng-template #noAuth>
-  <a class="btn btn-link" href="api/Account/Login">Log in</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="btn btn-link" href="api/Account/Login">Log in</a>
+	</nav>
 </ng-template>
+
+ <hr />
