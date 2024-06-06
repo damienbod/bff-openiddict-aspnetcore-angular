@@ -31,6 +31,7 @@ Or just open Visual Studio and run the solution.
 
 ## History
 
+- 2024-06-06 Updated packages, Angular 18
 - 2024-04-27 Updated packages and build, code clean up
 - 2024-01-22 Updated packages
 - 2023-12-30 Open Redirect protection for login
