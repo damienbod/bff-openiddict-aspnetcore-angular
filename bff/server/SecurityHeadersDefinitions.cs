@@ -1,4 +1,4 @@
-﻿﻿namespace BffOpenIddict.Server;
+﻿namespace BffOpenIddict.Server;
 
 public static class SecurityHeadersDefinitions
 {

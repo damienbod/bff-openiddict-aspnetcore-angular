@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BffOpenIddict.Server.Models;
+﻿namespace BffOpenIddict.Server.Models;
 
 public class UserInfo
 {
