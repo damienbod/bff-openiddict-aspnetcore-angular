@@ -29,6 +29,14 @@ Or just open Visual Studio and run the solution.
 - Nx
 - OpenIddict
 
+## Angular nx Updates
+
+```
+nx migrate latest
+
+nx migrate --run-migrations=migrations.json
+```
+
 ## History
 
 - 2024-10-06 Updated Angular 18.2.7
