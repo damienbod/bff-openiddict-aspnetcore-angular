@@ -18,15 +18,14 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 
 var services = builder.Services;
 var configuration = builder.Configuration;
-var env = builder.Environment;
 
 var stsServer = configuration["OpenIDConnectSettings:Authority"];
 
 services.AddSecurityHeaderPolicies()
   .SetPolicySelector((PolicySelectorContext ctx) =>
   {
-      return SecurityHeadersDefinitions
-        .GetHeaderPolicyCollection(env.IsDevelopment(), stsServer);
+      return SecurityHeadersDefinitions.GetHeaderPolicyCollection(
+          builder.Environment.IsDevelopment(), stsServer);
   });
 
 services.AddAntiforgery(options =>
@@ -84,7 +83,7 @@ JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 // Do not add to deployments, for debug reasons
 IdentityModelEventSource.ShowPII = true;
 
-if (env.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseWebAssemblyDebugging();
