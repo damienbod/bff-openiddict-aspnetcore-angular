@@ -39,7 +39,7 @@ nx migrate --run-migrations=migrations.json
 
 ## History
 
-- 2024-12-18 .NET 9, Openiddict 6.0
+- 2024-12-18 .NET 9, Openiddict 6.0, Angular 19
 - 2024-10-17 Code clean up
 - 2024-10-17 Updated packages, update security headers performance
 - 2024-10-06 Updated Angular 18.2.7
