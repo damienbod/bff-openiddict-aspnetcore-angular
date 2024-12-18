@@ -4,11 +4,10 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-call-api',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './call-api.component.html',
-  styleUrl: './call-api.component.scss',
+    selector: 'app-call-api',
+    imports: [CommonModule],
+    templateUrl: './call-api.component.html',
+    styleUrl: './call-api.component.scss'
 })
 
 export class CallApiComponent {

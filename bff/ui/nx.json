@@ -61,5 +61,6 @@
     }
   },
   "defaultProject": "ui",
-  "nxCloudAccessToken": "NGJmZDYwYzItOTg1NS00ZTYyLWFkMmYtMDk1YWRlN2EzNjJifHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NGJmZDYwYzItOTg1NS00ZTYyLWFkMmYtMDk1YWRlN2EzNjJifHJlYWQtd3JpdGU=",
+  "useLegacyCache": true
 }
