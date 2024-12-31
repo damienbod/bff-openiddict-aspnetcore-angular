@@ -39,6 +39,7 @@ nx migrate --run-migrations=migrations.json
 
 ## History
 
+- 2024-12-31 Bootstrap 5
 - 2024-12-31 Fix script loading
 - 2024-12-18 .NET 9, Openiddict 6.0, Angular 19
 - 2024-10-17 Code clean up
