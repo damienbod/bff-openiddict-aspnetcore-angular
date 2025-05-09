@@ -17,7 +17,7 @@ internal static class StartupExtensions
     {
         var services = builder.Services;
         var configuration = builder.Configuration;
-  
+
         services.AddControllersWithViews();
         services.AddRazorPages();
 

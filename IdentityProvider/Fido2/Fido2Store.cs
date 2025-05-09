@@ -27,7 +27,8 @@ public class Fido2Store
             foreach (var fido2Key in items)
             {
                 _applicationDbContext.FidoStoredCredential.Remove(fido2Key);
-            };
+            }
+            ;
 
             await _applicationDbContext.SaveChangesAsync();
         }
