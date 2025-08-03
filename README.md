@@ -40,6 +40,7 @@ nx migrate --run-migrations=migrations.json
 
 ## History
 
+- 2025-08-03 Updated packages, Angular 20.1.4
 - 2024-12-31 Bootstrap 5
 - 2024-12-31 Fix script loading
 - 2024-12-18 .NET 9, Openiddict 6.0, Angular 19
