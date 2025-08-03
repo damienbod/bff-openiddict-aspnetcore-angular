@@ -17,12 +17,10 @@
         "tsConfig": "./tsconfig.app.json",
         "assets": ["./src/favicon.ico", "./src/assets"],
         "styles": [
-			"node_modules/bootstrap/dist/css/bootstrap.min.css",
-			"./src/styles.scss"
-			],
-        "scripts": [
-			"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-		]
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "./src/styles.scss"
+        ],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
       },
       "configurations": {
         "production": {
@@ -67,7 +65,8 @@
           "buildTarget": "ui:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
