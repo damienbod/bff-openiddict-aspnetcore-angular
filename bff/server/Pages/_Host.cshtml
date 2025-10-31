@@ -30,12 +30,6 @@
     {
         // do nothing in development, Angular > 18.1.0 adds the nonce automatically
     }
-    else
-    {
-        // Angular release build does not add any nonce to the scripts, so we need to add it manually
-        var nonceScript = $"<script nonce=\"{nonce}\" ";
-        source = source.Replace("<script ", nonceScript);
-    }
 
     // link rel="stylesheet"
     var nonceLinkStyle = $"<link nonce=\"{nonce}\" rel=\"stylesheet\" ";
