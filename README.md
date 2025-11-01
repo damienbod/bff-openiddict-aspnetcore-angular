@@ -1,4 +1,4 @@
-# OpenIddict BFF security architecture using ASP.NET Core and nx Angular standalone
+# OpenIddict BFF security architecture using ASP.NET Core and Angular
 
  [![.NET and npm build](https://github.com/damienbod/bff-openiddict-aspnetcore-angular/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/bff-openiddict-aspnetcore-angular/actions/workflows/dotnet.yml) [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/damienbod/bff-openiddict-aspnetcore-angular/blob/main/bff/LICENSE)
 
@@ -9,7 +9,7 @@
 Start the Angular project from the **ui** folder
 
 ```
-nx serve --ssl
+ng serve --ssl
 ```
 
 Start the ASP.NET Core projects from the **server** folder and the **identityProvider**
@@ -26,16 +26,17 @@ Or just open Visual Studio and run the solution.
 - Yarp.ReverseProxy
 - OpenIddict
 - ASP.NET Core
-- Angular 
-- Nx
+- Angular, Angular CLI
 - OpenIddict
 
 ## Angular nx Updates
 
 ```
-nx migrate latest
+npm install -g @angular/cli latest
 
-nx migrate --run-migrations=migrations.json
+ng update
+
+ng update @angular/cli @angular/core
 ```
 
 ## History
