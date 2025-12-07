@@ -30,13 +30,13 @@ Or just open Visual Studio and run the solution.
 - Nx
 - OpenIddict
 
-## Angular nx Updates
+- ### Powershell
 
-```
-nx migrate latest
+Add-Migration "init_sts" -c ApplicationDbContext  
 
-nx migrate --run-migrations=migrations.json
-```
+## Running manually
+
+Update-Database -Context ApplicationDbContext
 
 ## History
 
