@@ -13,13 +13,14 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-			"outputPath": {
+            "outputPath": {
               "base": "../server/wwwroot",
               "browser": ""
             },
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -29,6 +30,7 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ]
           },
@@ -58,11 +60,11 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-		  "options": {
-			"sslKey": "certs/dev_localhost.key",
-			"sslCert": "certs/dev_localhost.pem",
-			"port": 4201,
-		  },
+          "options": {
+            "sslKey": "certs/dev_localhost.key",
+            "sslCert": "certs/dev_localhost.pem",
+            "port": 4201
+          },
           "configurations": {
             "production": {
               "buildTarget": "ui:build:production"
@@ -81,7 +83,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -90,12 +93,13 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
