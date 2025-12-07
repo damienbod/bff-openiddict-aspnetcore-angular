@@ -64,20 +64,4 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-4 mb-3 mb-sm-0">
-    <div class="card shadow">
-      <div class="card-body">
-        <h5 class="card-title">Microsoft Graph data using API</h5>
-        <pre class="card-text"
-          >{{ dataGraphApiCalls$ | async | json }}
-        </pre>
-        @if (userProfileClaims$ | async; as userProfileClaims) { @if
-        (userProfileClaims?.isAuthenticated) {
-        <button type="button" class="btn btn-primary" (click)="getGraphApiDataUsingApi()">
-          Get Graph data using API
-        </button>
-        }}
-      </div>
-    </div>
-  </div>
 </div>
