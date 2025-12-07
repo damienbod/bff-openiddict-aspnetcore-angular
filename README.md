@@ -40,6 +40,7 @@ nx migrate --run-migrations=migrations.json
 
 ## History
 
+- 2025-12-07 .NET 10
 - 2025-08-03 Updated packages, Angular 20.1.4
 - 2024-12-31 Bootstrap 5
 - 2024-12-31 Fix script loading
