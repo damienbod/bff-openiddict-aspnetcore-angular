@@ -24,8 +24,8 @@ internal static class HostingExtensions
 
         services.AddDbContext<ApplicationDbContext>(options =>
         {
-            // Configure the context to use Microsoft SQL Server.
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            // Configure the context to use Microsoft SQLite.
+            options.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
 
             // Register the entity sets needed by OpenIddict.
             // Note: use the generic overload if you need

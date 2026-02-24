@@ -41,7 +41,7 @@ ng update @angular/cli @angular/core
 
 ## Powershell Migration
 
-Add-Migration "init_sts" -c ApplicationDbContext  
+Add-Migration "InitIdp" -c ApplicationDbContext  
 
 ## Running manually
 
