@@ -41,7 +41,7 @@ ng update @angular/cli @angular/core
 
 ## Powershell Migration
 
-Add-Migration "init_sts" -c ApplicationDbContext  
+Add-Migration "InitIdp" -c ApplicationDbContext  
 
 ## Running manually
 
@@ -49,6 +49,7 @@ Update-Database -Context ApplicationDbContext
 
 ## History
 
+- 2026-02-24 Updated packages, Updated Angular 21
 - 2025-12-07 .NET 10, Angular 21
 - 2025-08-03 Updated packages, Angular 20.1.4
 - 2024-12-31 Bootstrap 5

@@ -1,17 +1,16 @@
-using Fido2Identity;
-using Fido2NetLib;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Logging;
-using OpeniddictServer.Data;
+using IdentityProvider.Data;
+using IdentityProvider.Passkeys;
 using Quartz;
 using Serilog;
+using System.IdentityModel.Tokens.Jwt;
 using static OpenIddict.Abstractions.OpenIddictConstants;
 
-namespace OpeniddictServer;
+namespace IdentityProvider;
 
-internal static class StartupExtensions
+internal static class HostingExtensions
 {
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
@@ -21,9 +20,11 @@ internal static class StartupExtensions
         services.AddControllersWithViews();
         services.AddRazorPages();
 
+        services.AddHttpContextAccessor();
+
         services.AddDbContext<ApplicationDbContext>(options =>
         {
-            // Configure the context to use Microsoft SQL Server.
+            // Configure the context to use Microsoft SQLite.
             options.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
 
             // Register the entity sets needed by OpenIddict.
@@ -34,14 +35,13 @@ internal static class StartupExtensions
 
         services.AddDatabaseDeveloperPageExceptionFilter();
 
-        services.AddIdentity<ApplicationUser, IdentityRole>()
-          .AddEntityFrameworkStores<ApplicationDbContext>()
-          .AddDefaultTokenProviders()
-          .AddDefaultUI()
-          .AddTokenProvider<Fido2UserTwoFactorTokenProvider>("FIDO2");
-
-        services.Configure<Fido2Configuration>(configuration.GetSection("fido2"));
-        services.AddScoped<Fido2Store>();
+        services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+        {
+            options.Stores.SchemaVersion = IdentitySchemaVersions.Version3;
+        })
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders()
+        .AddDefaultUI();
 
         services.AddDistributedMemoryCache();
 
@@ -147,14 +147,13 @@ internal static class StartupExtensions
         // Note: in a real world application, this step should be part of a setup script.
         services.AddHostedService<Worker>();
 
-
         return builder.Build();
     }
 
     public static WebApplication ConfigurePipeline(this WebApplication app)
     {
         IdentityModelEventSource.ShowPII = true;
-        JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
+        JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
         app.UseSerilogRequestLogging();
 
@@ -172,17 +171,21 @@ internal static class StartupExtensions
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
         app.UseRouting();
 
         app.UseAuthentication();
         app.UseAuthorization();
+        app.MapStaticAssets();
+        app.UseAntiforgery();
 
         app.UseSession();
 
+        app.MapPasskeyEndpoints();
+
         app.MapControllers();
         app.MapDefaultControllerRoute();
-        app.MapRazorPages();
+        app.MapRazorPages()
+            .WithStaticAssets();
 
         return app;
     }
